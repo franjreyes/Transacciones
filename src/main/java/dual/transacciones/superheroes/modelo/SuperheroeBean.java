@@ -2,9 +2,21 @@ package dual.transacciones.superheroes.modelo;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import lombok.Data;
+
+@Entity
+@Data
 public class SuperheroeBean {
 
-	private long identificador;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Long identificador;
 	
 	private String nombre;
 	
@@ -12,56 +24,10 @@ public class SuperheroeBean {
 	
 	private String imagen;
 	
+	@ManyToMany
 	private List<SuperpoderBean> superpoderes;
 	
+	@ManyToMany
 	private List<DebilidadBean> debilidades;
-
-	public long getIdentificador() {
-		return identificador;
-	}
-
-	public void setIdentificador(long identificador) {
-		this.identificador = identificador;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getAlterego() {
-		return alterego;
-	}
-
-	public void setAlterego(String alterego) {
-		this.alterego = alterego;
-	}
-
-	public String getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
-	}
-
-	public List<SuperpoderBean> getSuperpoderes() {
-		return superpoderes;
-	}
-
-	public void setSuperpoderes(List<SuperpoderBean> superpoderes) {
-		this.superpoderes = superpoderes;
-	}
-
-	public List<DebilidadBean> getDebilidades() {
-		return debilidades;
-	}
-
-	public void setDebilidades(List<DebilidadBean> debilidades) {
-		this.debilidades = debilidades;
-	}
 	
 }
